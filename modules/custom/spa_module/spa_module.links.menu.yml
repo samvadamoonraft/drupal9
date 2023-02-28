@@ -1,0 +1,5 @@
+spa_module.form:
+  title: 'Spa module settings'
+  description: 'Configure settings for the spa module.'
+  route_name: spa_module.form
+  parent: 'system.admin_config_development'

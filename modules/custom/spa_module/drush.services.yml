@@ -1,0 +1,6 @@
+services:
+  spa.commands:
+    arguments: ["@entity_type.manager", "@logger.factory"]
+    class: \Drupal\spa_module\Commands\SpaCommands
+    tags:
+        - { name: drush.command }

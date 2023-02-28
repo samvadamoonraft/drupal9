@@ -1,0 +1,14 @@
+uuid: a07eaf6d-948f-47f4-8e90-fe4980722b94
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - samvada.jain@moonraft.com
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

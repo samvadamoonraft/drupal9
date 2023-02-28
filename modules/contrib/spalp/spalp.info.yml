@@ -1,0 +1,11 @@
+name: 'Single Page Application Landing Page'
+type: module
+description: 'This module provides a way for site managers to configure and serve single-page applications as pages in a Drupal site.'
+core_version_requirement: ^9.1
+dependencies:
+  - drupal:content_translation
+
+# Information added by Drupal.org packaging script on 2022-07-14
+version: '2.0.2'
+project: 'spalp'
+datestamp: 1657817549

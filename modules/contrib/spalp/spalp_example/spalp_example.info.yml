@@ -1,0 +1,11 @@
+name: 'Single Page App Landing Page Example'
+type: module
+description: 'Example module for Single Page App Landing Page'
+core_version_requirement: ^9.1
+dependencies:
+  - spalp:spalp
+
+# Information added by Drupal.org packaging script on 2022-07-14
+version: '2.0.2'
+project: 'spalp'
+datestamp: 1657817549

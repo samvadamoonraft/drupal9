@@ -1,0 +1,12 @@
+name: 'Contextual Test'
+type: module
+description: 'Provides test contextual links.'
+package: Testing
+# version: VERSION
+dependencies:
+  - drupal:contextual
+
+# Information added by Drupal.org packaging script on 2022-07-28
+version: '9.4.4'
+project: 'drupal'
+datestamp: 1659037558

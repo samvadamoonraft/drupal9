@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+
+function spa_module_theme($existing, $type, $theme, $path) {
+// echo "spa module theme hook";
+    return [
+      'node__page' => [
+        'template' => 'node--page',
+        'path' => $path . '/templates',
+      ],
+    ];
+}
+
+
+function spa_module_node_view(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if($node instanceof \Drupal\node\NodeInterface) {
+    // echo "hook_node_view";
+    $node = $variables['#node'];
+    $type = $node->get('type')->getString();
+    $fields = $node->getFields();
+    foreach ($fields as $name => $field) {
+      $node1Fields[$name] = $field->getValue(); //
+    }
+
+    foreach ($node->getFieldDefinitions() as $field) {
+      if ($field->getType() == 'entity_reference' || $field->getType() == 'entity_reference_revisions') {
+        $reference_fields = $node->{$field->getName()}->referencedEntities();
+        foreach (array_keys($reference_fields) as $key) {
+          if($reference_fields[$key] instanceof \Drupal\node\NodeInterface) {
+            $type = $reference_fields[$key]->gettype();
+            $fields = $reference_fields[$key]->getFields();
+            foreach ($fields as $name => $field) {
+              $nodeFields[$name] = $field->getString();
+            }         
+            $variables['#attached']['drupalSettings']['myReactApp']['content'][$key][$type] = $nodeFields;
+          }
+          elseif($reference_fields[$key] instanceof \Drupal\paragraphs\Entity\Paragraph) {
+            $type = $reference_fields[$key]->gettype();
+            $fields = $reference_fields[$key]->getFields();
+            foreach ($fields as $name => $field) {
+              $paragraphFields[$name] = $field->getString();
+            }
+            $variables['#attached']['drupalSettings']['myReactApp']['paragraph'][$key][$type] = $paragraphFields;
+          }
+        }
+      }
+    }
+  }
+  $block_entity = Drupal\block_content\Entity\BlockContent::load(1);
+  if($block_entity instanceof \Drupal\block_content\Entity\BlockContent) {
+    $type = $block_entity->get('type')->getString();
+    $fields = $block_entity->getFields();
+    foreach ($fields as $name => $field) {
+      $blockFields[$name] = $field->getString();
+    }
+    $variables['#attached']['drupalSettings']['myReactApp']['blocks'][$key][$type] = $blockFields;
+  }
+}
+
+// function spa_module_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+//   echo "hook_entity_view";
+//   $url = \Drupal\Core\Url::fromRoute('spa_module.react_app', ['node' => $entity]);
+//   // kint($url);
+//   $url_options = [
+//     'attributes' => [
+//       'class' => [
+//         'button',
+//       ],
+//     ],
+//   ];
+//   $url->setOptions($url_options);
+// // kint($url);
+//   $build['more_info'] = [
+//     '#type' => 'link',
+//     '#title' => t('See the SPA page'),
+//     '#url' => $url,
+//   ];
+//   // kint($build);
+// }

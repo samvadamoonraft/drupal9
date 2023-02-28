@@ -1,0 +1,5 @@
+name: Isomorphic SPA With React
+type: module
+description: Isomorphic SPA With React
+core_version_requirement: 9.x
+package: React Component

@@ -1,0 +1,6 @@
+my-react-app:
+ version: 1.x
+ js:
+  js/react/spa_react/build/static/js/main.fdae747b.js: { minified: true }
+ dependencies:
+   - core/drupalSettings

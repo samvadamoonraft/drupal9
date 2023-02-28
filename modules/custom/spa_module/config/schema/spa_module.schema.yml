@@ -1,0 +1,10 @@
+spa_module.settings:
+  type: config_object
+  label: 'Spa Module settings'
+  mapping:
+    policy_library:
+      type: mapping
+      mapping:
+        spa_module_settings:
+          type: text
+          label: 'Spa Module settings'

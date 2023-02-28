@@ -1,0 +1,32 @@
+spa_module.form:
+  path: '/admin/config/development/spa-module'
+  defaults:
+    _form: '\Drupal\spa_module\Form\SpaConfigForm'
+    _title: 'Spa Module settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+
+# spa_module.content:
+#   path: '/example' 
+#   defaults: 
+#     _controller: '\Drupal\spa_module\Controller\SpaController::content' 
+#     _title: 'Hello World'
+#   requirements: 
+#     _access: 'TRUE'
+
+# spa_module.form:
+#  path: '/spa_module/myform'
+#  defaults:
+#    _title: 'Application form'
+#    _form: '\Drupal\spa_module\Form\ResumeForm'
+#  requirements:
+#    _permission: 'TRUE'
+
+# spa_module.react_app: 
+#   path: /react-app
+#   defaults:
+#      _controller: '\Drupal\spa_module\Controller\SpaController::overview'
+#      _title: 'My React App'
+#   requirements:
+#      _access: 'TRUE'
